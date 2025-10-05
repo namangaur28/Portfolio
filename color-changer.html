@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Color Changer</title>
+  <style>
+    
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button.red { background-color: #e74c3c; }
+    button.green { background-color: #27ae60; }
+    button.blue { background-color: #2980b9; }
+    button.yellow { background-color: #f1c40f; color: #333; }
+    button.reset { background-color: #7f8c8d; }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      button {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Changer</h1>
+  <div class="buttons">
+    <button class="red" data-color="#e74c3c">Red</button>
+    <button class="green" data-color="#27ae60">Green</button>
+    <button class="blue" data-color="#2980b9">Blue</button>
+    <button class="yellow" data-color="#f1c40f">Yellow</button>
+    <button class="reset" data-color="white">Reset</button>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        document.body.style.backgroundColor = button.getAttribute('data-color');
+      });
+    });
+  </script>
+</body>
+</html>
+

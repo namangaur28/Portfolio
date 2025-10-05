@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafe Menu</title>
+  <style>
+    /* Background setup */
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #3e2f1c;
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    
+    body::before {
+      position: fixed;
+        background: rgba(255, 248, 240, 0.7);
+    
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 2px solid #d6a964;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 12px rgba(214, 169, 100, 0.3);
+      padding: 20px 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #d6a964;
+      font-size: 1.2rem;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-name {
+      font-weight: 600;
+    }
+
+    .item-price {
+      font-weight: 700;
+      color: #b36b00;
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      .menu {
+        padding: 15px 20px;
+      }
+      .menu-item {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>☕ Cafe Menu</h1>
+  <div class="menu">
+    <div class="menu-item">
+      <div class="item-name">Espresso</div>
+      <div class="item-price">₹180</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Cappuccino</div>
+      <div class="item-price">₹320</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Latte</div>
+      <div class="item-price">₹365</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Mocha</div>
+      <div class="item-price">₹400</div>
+    </div>
+    <div class="menu-item">
+      <div class="item-name">Tea</div>
+      <div class="item-price">₹90</div>
+    </div>
+  </div>
+</body>
+</html>
