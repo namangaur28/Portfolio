@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moon Orbit Animation</title>
+  <style>
+    :root {
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      --accent-glow: rgba(99, 102, 241, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #000015 0%, #000000 100%);
+      overflow: hidden;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      position: relative;
+    }
+
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--accent-gradient);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 10;
+      box-shadow: var(--shadow-md);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg), 0 0 30px var(--accent-glow);
+    }
+
+    /* Starfield */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    #orbit-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      z-index: 1;
+      margin-top: 20px;
+    }
+
+    #earth {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle at 30% 30%, #00f, #003);
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(0, 100, 255, 0.7),
+                  inset 0 0 20px #000066;
+      z-index: 2;
+    }
+
+    .moon-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      transform: translate(-50%, -50%);
+      animation: orbit 5s linear infinite;
+      transform-origin: center;
+    }
+
+    #moon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      background: radial-gradient(circle at 30% 30%, #ddd, #888);
+      border-radius: 50%;
+      transform: translate(180px, -50%);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    @keyframes orbit {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @media (max-width: 480px) {
+      #orbit-container {
+        width: 250px;
+        height: 250px;
+      }
+
+      #earth {
+        width: 60px;
+        height: 60px;
+      }
+
+      .moon-orbit {
+        width: 250px;
+        height: 250px;
+      }
+
+      #moon {
+        width: 15px;
+        height: 15px;
+        transform: translate(110px, -50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
+
+  <div id="orbit-container">
+    <div id="earth"></div>
+    <div class="moon-orbit">
+      <div id="moon"></div>
+    </div>
+  </div>
+</body>
+</html>
